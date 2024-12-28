@@ -1,0 +1,7 @@
+@academia_HostAddress = http://localhost:5038
+
+GET {{academia_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+dotnet ef dbcontext scaffold "Server=MIKE;Database=academia;User ID=sa;Password=epilef;MultipleActiveResultSets=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o Models --use-database-names
