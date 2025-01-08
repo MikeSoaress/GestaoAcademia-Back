@@ -96,6 +96,10 @@
             {
                 entity.HasKey(e => e.id).HasName("PK_SubMenu");
 
+                entity.Property(e => e.chr_legenda)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
                 entity.ToTable("AuthSubMenu");
 
                 entity.Property(e => e.chr_url).IsUnicode(false);

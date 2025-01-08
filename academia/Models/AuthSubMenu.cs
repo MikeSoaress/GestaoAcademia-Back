@@ -9,6 +9,8 @@ public partial class AuthSubMenu
 
     public int? id_menu { get; set; }
 
+    public string? chr_legenda { get; set; }
+
     public string? chr_url { get; set; }
 
     public int? int_ordem { get; set; }

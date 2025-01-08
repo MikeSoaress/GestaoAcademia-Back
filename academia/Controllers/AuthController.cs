@@ -36,8 +36,7 @@ namespace academia.Controllers
 
             var roles = user.AuthPerfilUsuarios.Select(perfil => perfil.id_perfil).ToList();
 
-
-            var token = _jwtService.GenerateToken(user.id.ToString(), user.chr_login, roles);
+            var token = _jwtService.GenerateToken(user.id.ToString(),  roles);
             return Ok(new { token });
         }
 

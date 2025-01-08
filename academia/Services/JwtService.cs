@@ -18,7 +18,7 @@
             _issuer = configuration["Jwt:Issuer"];
         }
 
-        public string GenerateToken(string userId, string email, List<int?> roles)
+        public string GenerateToken(string userId, List<int?> roles)
         {
             if (string.IsNullOrEmpty(_key))
                 throw new ArgumentNullException("_key não foi configurada corretamente");
@@ -41,7 +41,6 @@
 
             var token = new JwtSecurityToken(
                 issuer: _issuer,
-                audience: _issuer,
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: creds
@@ -57,10 +56,9 @@
             var validationParameters = new TokenValidationParameters
             {
                 ValidateIssuer = true,
-                ValidateAudience = true,
+                ValidateAudience = false,
                 ValidateIssuerSigningKey = true,
                 ValidIssuer = _issuer,
-                ValidAudience = _issuer,
                 IssuerSigningKey = new SymmetricSecurityKey(key)
             };
 
